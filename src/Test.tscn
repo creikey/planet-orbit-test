@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Planet.gd" type="Script" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://FindLine.gd" type="Script" id=3]
+
+[node name="Test" type="Node2D" index="0"]
+
+[node name="Planet" type="Node2D" parent="." index="0"]
+
+position = Vector2( 350, 350 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+radius = 200.0
+color = Color( 1, 0.679688, 0.679688, 1 )
+
+[node name="Player" type="Node2D" parent="." index="1"]
+
+script = ExtResource( 2 )
+planet_path = NodePath("../Planet")
+size = 30.0
+color = Color( 1, 1, 1, 1 )
+move_speed = 0.25
+
+[node name="FindLine" type="Node2D" parent="." index="2"]
+
+script = ExtResource( 3 )
+planet_path = NodePath("../Planet")
+player_path = NodePath("../Player")
+
+
